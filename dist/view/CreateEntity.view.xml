@@ -1,0 +1,77 @@
+<mvc:View 
+	xmlns:core="sap.ui.core" 
+	xmlns:mvc="sap.ui.core.mvc" 
+	xmlns="sap.m"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:semantic="sap.m.semantic"
+	controllerName="com.projetos.transacoes.controller.CreateEntity"
+	xmlns:html="http://www.w3.org/1999/xhtml"
+	>
+	<App
+		id="idAppControl">
+		<pages>
+			<semantic:SemanticPage
+				showNavButton="{viewModel>/extension}"
+				navButtonPress="onNavBack"
+				>
+				<semantic:content>
+					<f:SimpleForm 
+						class="editableForm" 
+						columnsL="1" 
+						columnsM="1" 
+						editable="true" 
+						emptySpanL="4" 
+						emptySpanM="4"
+						id="newEntitySimpleForm"
+						labelSpanL="3" 
+						labelSpanM="3"
+						layout="ResponsiveGridLayout" 
+						maxContainerCols="2"
+						minWidth="1024"
+						title="Realizar transferência de jogador"
+						>
+						<f:content>
+							<Label 
+								text="Time"
+								required="true"
+								/>
+							<Input 
+								name="Time"
+								id="Time" 
+								valueLiveUpdate="true" 
+								liveChange="_validateSaveEnablement"
+								enabled="false" 
+								value="{ path: 'IdTime', type: 'sap.ui.model.odata.type.String' , constraints:{ nullable:false } }"
+								/>
+							<Label 
+								text="Jogador"
+								required="true"
+								/>
+							<Input 
+								name="Jogador"
+								id="Jogador_id" 
+								valueLiveUpdate="true"
+								liveChange="_validateSaveEnablement"
+								enabled="true" 
+								visible="true"
+								value="{ path: 'Logo', type: 'sap.ui.model.odata.type.String' , constraints:{ nullable:false } }"
+								/>
+							<Label 
+								text="Time a ser transferido" 
+								required="true"
+								/>
+							<Input 
+								name="TimeNovo" 
+								id="TimeNovo_id" valueLiveUpdate="true" 
+								liveChange="_validateSaveEnablement" 
+								enabled="true" 
+								visible="true"
+								value="{ path: 'Nome', type: 'sap.ui.model.odata.type.String' , constraints:{ nullable:false } }"
+								/>
+						</f:content>
+					</f:SimpleForm>
+				</semantic:content><!-- sap.ui.core.Control -->
+			</semantic:SemanticPage>
+		</pages>
+	</App>	
+</mvc:View>
